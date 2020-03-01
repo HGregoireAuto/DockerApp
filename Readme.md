@@ -1,10 +1,12 @@
 # Docker test
 
-To start the project use: 
+To use / start the project.
+Open Docker -> Settings -> Resources -> File Sharing and check "C"
+
+Then execute 
 
 ```bash
-docker-compose build
-
+docker-compose pull
 docker-compose up
 ```
 
@@ -14,6 +16,14 @@ http://localhost:8080
 
 ##Connect to Varnish server
 http://localhost:8081  
+
+
+#Upload / update Docker images
+```
+docker push ylupien/my.php:tg1
+docker push ylupien/my.apache:tg1
+```
+
 
 
 ## Prepare / download image from dockerfile

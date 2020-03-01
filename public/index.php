@@ -4,7 +4,7 @@
 $user = 'root';
 $pass = '1q2w3e';
 
-$conn = new PDO('mysql:host=mariadb;dbname=bbb', $user, $pass);
+$conn = new PDO('mysql:host=mariadb;dbname=TheApp', $user, $pass);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

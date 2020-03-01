@@ -32,6 +32,7 @@ services:
    MYSQL_ROOT_PASSWORD: 1q2w3e
   volumes:
    - ./db:/var/lib/mysql
+   - ./mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql
   networks:
    - backend
 
