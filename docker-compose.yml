@@ -1,0 +1,59 @@
+version: '3'
+services:
+
+ php:
+  image: ylupien/my.php:tg1
+  build: './php/'
+  networks:
+   - backend
+  volumes:
+   - ./public/:/var/www/html/
+
+ apache:
+  image: ylupien/my.apache:tg1
+  build: './apache/'
+  depends_on:
+   - php
+   - mariadb
+  networks:
+   - frontend
+   - backend
+  ports:
+   - "8080:80"
+  volumes:
+   - ./public/:/var/www/html/
+
+ mariadb:
+  image: mariadb
+  restart: always
+  ports:
+   - "3307:3306"
+  environment:
+   MYSQL_ROOT_PASSWORD: 1q2w3e
+  volumes:
+   - ./db:/var/lib/mysql
+  networks:
+   - backend
+
+ redis:
+  image: redis
+  restart: always
+  ports:
+   - "6380:6379"
+  networks:
+   - backend
+
+ varnish:
+  image: varnish:6.2
+  restart: always
+  ports:
+   - "8081:80"
+  networks:
+   - frontend
+   - backend
+  volumes:
+   - ./varnish/default.vcl:/etc/varnish/default.vcl
+
+networks:
+  frontend:
+  backend:
