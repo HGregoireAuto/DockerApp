@@ -40,15 +40,15 @@ Connect to Maria DB
 localhost:3307
 
 
-#Misc commands
+# Misc commands
 
-##Upload / update Docker images
+## Upload / update Docker images
 ```
 docker push ylupien/my.php:tg1
 docker push ylupien/my.apache:tg1
 ```
 
-##To clean all / remove all docker images from your system
+## To clean all / remove all docker images from your system
 ```
 docker system prune -a
 ```
