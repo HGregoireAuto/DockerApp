@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
 
  php:
@@ -47,6 +47,8 @@ services:
  varnish:
   image: varnish:6.2
   restart: always
+  depends_on:
+   - apache
   ports:
    - "8081:80"
   networks:

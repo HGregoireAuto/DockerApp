@@ -10,15 +10,18 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+$sth = $conn->query("SELECT VERSION() ver");
+$mariaInfo = $sth->fetch();
+
 
 
 $redis = new Redis();
 $redis->connect('redis', 6379);
-print "<pre>";
-print_r($redis->info());
-print "</pre>";
- 
-if ($redis->ping()) {
-  echo "PONG\n";
-}
 
+$redisInfo = $redis->info();
+
+
+echo 'PHP: ', phpversion(), "<br>\n";
+echo 'Redis: ', $redisInfo['redis_version'], "<br>\n";
+echo 'MariaDB: ', $mariaInfo['ver'], "<br>\n";
+ 
