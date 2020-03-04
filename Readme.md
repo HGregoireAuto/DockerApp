@@ -42,6 +42,19 @@ localhost:3307
 
 # Misc commands
 
+Start docker up background mode
+
+```bash
+docker-compose up -d
+```
+
+Stop docker background mode
+
+```bash
+docker-compose stop
+```
+
+
 ## Upload / update Docker images
 ```
 docker push ylupien/my.php:tg1
