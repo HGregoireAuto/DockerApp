@@ -67,4 +67,6 @@ docker ps
 ```
 docker exec -it %container_id% /bin/bash
 docker exec -it 2488326f2ab6 /bin/bash
+
+docker-compose run php /bin/bash
 ```
