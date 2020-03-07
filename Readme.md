@@ -97,13 +97,17 @@ docker swarm join --token SWMTKN-1-4m6qwq3mabkgphi4p3fdckonqml9m099kp6tc4oet14yv
 
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 
-
 ```
 docker stack deploy -c docker-compose.yml prjDoc
 ```
 
-
 Build image / replace existing / running
 ```
 docker-compose up -d --build
+```
+
+Copy folder from container to host
+```bash
+docker cp docker_php_1:/var/www/vendor ./app
+docker cp docker_php_1:/var/www/composer.lock ./app
 ```

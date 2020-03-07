@@ -3,11 +3,15 @@ services:
 
  php:
   image: ylupien/my.php:tg1
-  build: './php/'
+  build:
+   context: .
+   dockerfile: './php/Dockerfile'
   networks:
    - backend
   volumes:
-   - ./public/:/var/www/html/
+   - ./app/configs/:/var/www/configs/
+   - ./app/html/:/var/www/html/
+   - ./app/libs/:/var/www/libs/
 
  apache:
   image: ylupien/my.apache:tg1
@@ -21,7 +25,7 @@ services:
   ports:
    - "8080:80"
   volumes:
-   - ./public/:/var/www/html/
+   - ./app/html/:/var/www/html/
 
  mariadb:
   image: mariadb
