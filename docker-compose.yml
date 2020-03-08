@@ -9,9 +9,10 @@ services:
   networks:
    - backend
   volumes:
-   - ./app/configs/:/var/www/configs/
-   - ./app/html/:/var/www/html/
-   - ./app/libs/:/var/www/libs/
+   - ./app/configs/:/var/www/configs/:consistent
+   - ./app/public/:/var/www/public/:consistent
+   - ./app/libs/:/var/www/libs/:consistent
+   - ./app/vendor/:/var/www/vendor/:cached
 
  apache:
   image: ylupien/my.apache:tg1
@@ -25,7 +26,7 @@ services:
   ports:
    - "8080:80"
   volumes:
-   - ./app/html/:/var/www/html/
+   - ./app/public:/var/www/public
 
  mariadb:
   image: mariadb

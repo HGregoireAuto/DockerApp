@@ -1,8 +1,7 @@
 # Docker test
 
 ## Prerequisites
-+ Download Docker https://www.docker.com/products/docker-desktop
-+ Install Docker
++ Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop) 
 + Restart your PC
 + Open Docker console -> Settings -> Resources -> File Sharing and then the drive where (this) project is on.
 
@@ -111,3 +110,7 @@ Copy folder from container to host
 docker cp docker_php_1:/var/www/vendor ./app
 docker cp docker_php_1:/var/www/composer.lock ./app
 ```
+
+
+## References
++ https://github.com/mlocati/docker-php-extension-installer

@@ -9,7 +9,8 @@ COPY ./php/php.ini /usr/local/etc/php/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www
-COPY ./app/composer* ./
+RUN rm -rf /var/www/*
+COPY ./app/ .
 
 RUN apt-get update \
     && apt-get install -y gnupg2 zip unzip libzip-dev \
