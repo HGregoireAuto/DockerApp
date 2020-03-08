@@ -1,5 +1,3 @@
-# https://github.com/mlocati/docker-php-extension-installer
-
 FROM ylupien/php:7.4-fpm
 
 COPY ./php/php.ini /usr/local/etc/php/php.ini
