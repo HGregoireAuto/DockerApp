@@ -31,10 +31,9 @@ RUN apt-get install -y \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
-&& pecl install redis-5.1.1 pdo_sqlsrv zendopcache zip \
+&& pecl install redis-5.1.1 pdo_sqlsrv \
 && docker-php-ext-configure gd --with-freetype --with-jpeg \
-&& docker-php-ext-install -j$(nproc) gd pdo_mysql gettext opcache zip \
-&& docker-php-ext-enable redis \
-&& echo extension=pdo_sqlsrv.so > /usr/local/etc/php/conf.d/docker-php-ext-pdo_sqlsrv.ini
+&& docker-php-ext-install -j$(nproc) gd pdo_mysql gettext zip \
+&& docker-php-ext-enable redis pdo_sqlsrv opcache zip
 
 RUN composer install
