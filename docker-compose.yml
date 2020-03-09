@@ -6,6 +6,10 @@ services:
   build:
    context: .
    dockerfile: './php/Dockerfile'
+  command:
+   - /bin/bash
+   - -c
+   - ./php-fpm-build.sh && php-fpm
   networks:
    - backend
   volumes:

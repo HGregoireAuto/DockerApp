@@ -9,5 +9,4 @@ WORKDIR /var/www
 RUN rm -rf /var/www/*
 COPY ./app/ .
 
-
-RUN composer install
+RUN ./php-fpm-build.sh
